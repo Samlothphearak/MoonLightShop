@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,99 +8,286 @@
     <!-- REMIX - ICON -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.5.0/remixicon.css">
     <link rel="stylesheet" href="/public/css/output.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </head>
+
 <body class="bg-gray-100 font-sans">
- <!-- Header Section with Navbar -->
- <header class="bg-gray-900 text-white py-4 sticky top-0 z-50 shadow-lg">
-    <div class="container mx-auto flex justify-between items-center px-4">
-        <a href="#" class="text-3xl font-bold">MoonLightShop</a>
-        <!-- Navbar Menu for Large Screens -->
-        <nav class="hidden md:flex space-x-8">
-            <a href="#home" class="text-gray-300 hover:text-white transition duration-200">Home</a>
-            <a href="#products" class="text-gray-300 hover:text-white transition duration-200">Products</a>
-            <a href="#about" class="text-gray-300 hover:text-white transition duration-200">About</a>
-            <a href="#contact" class="text-gray-300 hover:text-white transition duration-200">Contact</a>
-        </nav>
-        <!-- Mobile Navbar Toggle Button -->
-        <button id="navbar-toggle" class="md:hidden text-white">
-            <i class="ri-menu-line text-2xl"></i>
-        </button>
-        <!-- Login & Profile Section -->
-        <div class="flex items-center space-x-4">
-            <a href="#login" class="bg-gray-700 text-white py-1 px-4 rounded-lg hover:bg-gray-600">Login</a>
-            <img src="/public/images/user-2.jpg" alt="Profile" class="w-10 h-10 rounded-full border-2 border-gray-600 cursor-pointer">
-            <!-- Dropdown Menu for Profile -->
-            <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-40 bg-gray-700 text-white rounded-lg shadow-lg">
-                <a href="#profile" class="block px-4 py-2 hover:bg-gray-600">Profile</a>
-                <a href="#settings" class="block px-4 py-2 hover:bg-gray-600">Settings</a>
-                <a href="#logout" class="block px-4 py-2 hover:bg-gray-600">Logout</a>
+    <!-- Header Section with Navbar -->
+    <header class="bg-gray-900 text-white py-4 sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center px-4">
+            <a href="#" class="text-3xl font-bold">MoonLightShop</a>
+
+            <!-- Navbar Menu for Large Screens -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-white transition duration-200">Home</a>
+                <a href="#products" class="text-gray-300 hover:text-white transition duration-200">Products</a>
+                <a href="#about" class="text-gray-300 hover:text-white transition duration-200">About</a>
+                <a href="#contact" class="text-gray-300 hover:text-white transition duration-200">Contact</a>
+            </nav>
+
+            <!-- Mobile Navbar Toggle Button -->
+            <button id="navbar-toggle" class="md:hidden text-white">
+                <i class="ri-menu-line text-2xl"></i> <!-- Using Remix Icon for menu -->
+            </button>
+
+            <!-- Login & Profile Section -->
+            <div class="flex items-center space-x-4 relative">
+                <a href="#login" class="bg-gray-700 text-white py-1 px-4 rounded-lg hover:bg-gray-600">Login</a>
+
+                <!-- Profile Image and Dropdown -->
+                <div class="relative">
+                    <img src="/public/images/user-2.jpg" alt="Profile"
+                        class="w-10 h-10 rounded-full border-2 border-gray-600 cursor-pointer" id="profile-icon">
+
+                    <!-- Profile Dropdown -->
+                    <div id="profile-dropdown"
+                        class="hidden absolute right-0 mt-2 w-40 bg-gray-700 text-white rounded-lg shadow-lg z-10">
+                        <!-- Profile Item with Icon -->
+                        <a href="#profile" class="block px-4 py-2 hover:bg-gray-600 flex items-center space-x-2">
+                            <i class="ri-user-line text-xl"></i> <!-- Remix Icon for Profile -->
+                            <span>Profile</span>
+                        </a>
+                        <!-- Settings Item with Icon -->
+                        <a href="#settings" class="block px-4 py-2 hover:bg-gray-600 flex items-center space-x-2">
+                            <i class="ri-settings-2-line text-xl"></i> <!-- Remix Icon for Settings -->
+                            <span>Settings</span>
+                        </a>
+                        <!-- Logout Item with Icon -->
+                        <a href="#logout" class="block px-4 py-2 hover:bg-gray-600 flex items-center space-x-2">
+                            <i class="ri-logout-box-r-line text-xl"></i> <!-- Remix Icon for Logout -->
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Mobile Navbar (Hidden by default) -->
-    <div id="mobile-menu" class="md:hidden bg-gray-900 text-white py-4 px-6 space-y-4 hidden">
-        <a href="#home" class="block text-gray-300 hover:text-white">Home</a>
-        <a href="#products" class="block text-gray-300 hover:text-white">Products</a>
-        <a href="#about" class="block text-gray-300 hover:text-white">About</a>
-        <a href="#contact" class="block text-gray-300 hover:text-white">Contact</a>
-    </div>
-</header>
+        <!-- Mobile Navbar (Hidden by default) -->
+        <div id="mobile-menu" class="md:hidden bg-gray-900 text-white py-4 px-6 space-y-4 hidden">
+            <a href="#home" class="block text-gray-300 hover:text-white">Home</a>
+            <a href="#products" class="block text-gray-300 hover:text-white">Products</a>
+            <a href="#about" class="block text-gray-300 hover:text-white">About</a>
+            <a href="#contact" class="block text-gray-300 hover:text-white">Contact</a>
+        </div>
+    </header>
+    <!-- Welcome Section -->
+    <section id="welcome" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-4">Welcome to MoonLightShop!</h2>
+            <p class="text-lg text-gray-400 mb-6">We are thrilled to have you here. Explore our wide range of premium
+                products, crafted for every need and style.</p>
+            <a href="#products"
+                class="bg-indigo-600 text-white py-3 px-8 rounded-lg hover:bg-indigo-500 transition duration-300 inline-block">Shop
+                Now</a>
+        </div>
+    </section>
+    <!-- Popular Products Section -->
+    <section id="popular-products" class="bg-gray-100 py-12">
+        <div class="container mx-auto text-center mb-8">
+            <h2 class="text-3xl font-bold">Popular Products</h2>
+            <p class="text-gray-600 mt-2">Our best-selling products that customers love.</p>
+        </div>
+        <div class="container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
+            <!-- Popular Product Item 1 -->
+            <div class="bg-white p-6 shadow-lg rounded-lg transition-transform transform hover:scale-105 duration-300">
+                <div class="relative w-full h-80">
+                    <img src="/public/images/product-4.jpg" alt="Apple Watch Ultra 2"
+                        class="absolute inset-0 w-full h-full object-cover rounded-lg">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mt-4">Apple Watch Ultra 2</h3>
+                <p class="text-gray-600 mt-2">A short description of the product, highlighting its features and appeal.
+                </p>
+                <p class="text-lg font-semibold text-indigo-600 mt-4">$129.99</p>
+                <a href="#product-detail" class="text-indigo-600 hover:text-indigo-500 mt-4 inline-block">View
+                    Details</a>
+            </div>
+            <!-- Popular Product Item 2 -->
+            <div class="bg-white p-6 shadow-lg rounded-lg transition-transform transform hover:scale-105 duration-300">
+                <div class="relative w-full h-80">
+                    <img src="/public/images/product-5.jpg" alt="Product Name 2"
+                        class="absolute inset-0 w-full h-full object-cover rounded-lg">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mt-4">Apple Watch Ultra 2</h3>
+                <p class="text-gray-600 mt-2">A short description of the product, highlighting its features and appeal.
+                </p>
+                <p class="text-lg font-semibold text-indigo-600 mt-4">$149.99</p>
+                <a href="#product-detail" class="text-indigo-600 hover:text-indigo-500 mt-4 inline-block">View
+                    Details</a>
+            </div>
+            <!-- Popular Product Item 3 -->
+            <div class="bg-white p-6 shadow-lg rounded-lg transition-transform transform hover:scale-105 duration-300">
+                <div class="relative w-full h-80">
+                    <img src="/public/images/product-6.jpg" alt="Product Name 3"
+                        class="absolute inset-0 w-full h-full object-cover rounded-lg">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mt-4">Product Name 3</h3>
+                <p class="text-gray-600 mt-2">A short description of the product, highlighting its features and appeal.
+                </p>
+                <p class="text-lg font-semibold text-indigo-600 mt-4">$179.99</p>
+                <a href="#product-detail" class="text-indigo-600 hover:text-indigo-500 mt-4 inline-block">View
+                    Details</a>
+            </div>
+            <!-- Popular Product Item 4 -->
+            <div class="bg-white p-6 shadow-lg rounded-lg transition-transform transform hover:scale-105 duration-300">
+                <div class="relative w-full h-80">
+                    <img src="/public/images/product-7.jpg" alt="Product Name 4"
+                        class="absolute inset-0 w-full h-full object-cover rounded-lg">
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mt-4">Product Name 4</h3>
+                <p class="text-gray-600 mt-2">A short description of the product, highlighting its features and appeal.
+                </p>
+                <p class="text-lg font-semibold text-indigo-600 mt-4">$199.99</p>
+                <a href="#product-detail" class="text-indigo-600 hover:text-indigo-500 mt-4 inline-block">View
+                    Details</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Discounts and Promotions Section -->
+    <section id="discounts" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl font-bold">Special Offers & Promotions</h2>
+            <p class="text-gray-400 mt-4">Don’t miss out on our limited-time offers and discounts!</p>
+        </div>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+            <!-- Promotion 1 -->
+            <div class="bg-red-600 p-6 shadow-lg rounded-lg text-white">
+                <h3 class="text-2xl font-bold">20% Off on All Products</h3>
+                <p class="text-gray-100 mt-2">Use code "SAVE20" at checkout to get 20% off your order.</p>
+                <p class="text-lg mt-4">Valid until: December 31, 2024</p>
+                <a href="#shop-now" class="text-white mt-4 inline-block underline">Shop Now</a>
+            </div>
+            <!-- Promotion 2 -->
+            <div class="bg-indigo-600 p-6 shadow-lg rounded-lg text-white">
+                <h3 class="text-2xl font-bold">Buy One, Get One Free</h3>
+                <p class="text-gray-100 mt-2">For a limited time, buy one product and get another for free. No code
+                    needed!</p>
+                <p class="text-lg mt-4">Valid until: November 30, 2024</p>
+                <a href="#shop-now" class="text-white mt-4 inline-block underline">Shop Now</a>
+            </div>
+            <!-- Promotion 3 -->
+            <div class="bg-green-600 p-6 shadow-lg rounded-lg text-white">
+                <h3 class="text-2xl font-bold">Free Shipping on Orders Over $100</h3>
+                <p class="text-gray-100 mt-2">Get free shipping when you spend over $100 on your order. No code needed.
+                </p>
+                <p class="text-lg mt-4">Valid until: November 25, 2024</p>
+                <a href="#shop-now" class="text-white mt-4 inline-block underline">Shop Now</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Main Section (Products Grid) -->
-    <section id="products" class="py-12">
+    <!-- Main Section (Products Grid) -->
+    <section id="products" class="py-12 bg-gray-100">
         <div class="container mx-auto text-center mb-8">
             <h2 class="text-3xl font-bold">Featured Products</h2>
             <p class="text-gray-600 mt-2">Browse through our latest collections</p>
         </div>
         <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 px-4">
             <!-- Product 1 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                <img src="/public/images/product-1.jpg" alt="Product 1" class="w-full h-48 object-cover transition duration-300 ease-in-out hover:opacity-80">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden relative">
+                <img src="/public/images/product-1.jpg" alt="Product 1" class="w-full h-48 object-cover">
                 <div class="p-4">
                     <h3 class="text-xl font-semibold text-gray-800">MacBook Air M2</h3>
                     <p class="text-gray-500 mt-2">$29.99</p>
-                    <button class="w-full bg-indigo-600 text-white py-2 mt-4 rounded-lg hover:bg-indigo-500 transition duration-200">Add to Cart</button>
+                    <div class="flex items-center space-x-2 mt-2">
+                        <!-- Rating stars -->
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-half-line text-yellow-400"></i>
+                        <span class="text-gray-400 ml-2">(4.5)</span>
+                    </div>
+                    <button
+                        class="w-full bg-indigo-600 text-white py-2 mt-4 rounded-lg hover:bg-indigo-500 transition duration-200">Add
+                        to Cart</button>
                 </div>
+                <!-- Sale Tag -->
+                <span
+                    class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold uppercase py-1 px-3 rounded-lg">Sale</span>
             </div>
 
             <!-- Product 2 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                <img src="/public/images/cart-2.png" alt="Product 2" class="w-full h-48 object-cover transition duration-300 ease-in-out hover:opacity-80">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden relative">
+                <img src="/public/images/cart-2.png" alt="Product 2" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Product 2</h3>
+                    <h3 class="text-xl font-semibold text-gray-800">Wireless Headphones</h3>
                     <p class="text-gray-500 mt-2">$39.99</p>
-                    <button class="w-full bg-indigo-600 text-white py-2 mt-4 rounded-lg hover:bg-indigo-500 transition duration-200">Add to Cart</button>
+                    <div class="flex items-center space-x-2 mt-2">
+                        <!-- Rating stars -->
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-line text-gray-400"></i>
+                        <i class="ri-star-line text-gray-400"></i>
+                        <span class="text-gray-400 ml-2">(3.0)</span>
+                    </div>
+                    <button
+                        class="w-full bg-indigo-600 text-white py-2 mt-4 rounded-lg hover:bg-indigo-500 transition duration-200">Add
+                        to Cart</button>
                 </div>
+                <!-- New Tag -->
+                <span
+                    class="absolute top-2 left-2 bg-green-500 text-white text-xs font-bold uppercase py-1 px-3 rounded-lg">New</span>
             </div>
 
             <!-- Product 3 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                <img src="/public/images/cart-3.png" alt="Product 3" class="w-full h-48 object-cover transition duration-300 ease-in-out hover:opacity-80">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden relative">
+                <img src="/public/images/cart-3.png" alt="Product 3" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Product 3</h3>
+                    <h3 class="text-xl font-semibold text-gray-800">Smartwatch</h3>
                     <p class="text-gray-500 mt-2">$49.99</p>
-                    <button class="w-full bg-indigo-600 text-white py-2 mt-4 rounded-lg hover:bg-indigo-500 transition duration-200">Add to Cart</button>
+                    <div class="flex items-center space-x-2 mt-2">
+                        <!-- Rating stars -->
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <span class="text-gray-400 ml-2">(5.0)</span>
+                    </div>
+                    <button
+                        class="w-full bg-indigo-600 text-white py-2 mt-4 rounded-lg hover:bg-indigo-500 transition duration-200">Add
+                        to Cart</button>
                 </div>
             </div>
 
             <!-- Product 4 -->
-            <div class="bg-white shadow-lg rounded-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-xl">
-                <img src="/public/images/cart-4.png" alt="Product 4" class="w-full h-48 object-cover transition duration-300 ease-in-out hover:opacity-80">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden relative">
+                <img src="/public/images/cart-4.png" alt="Product 4" class="w-full h-48 object-cover">
                 <div class="p-4">
-                    <h3 class="text-xl font-semibold text-gray-800">Product 4</h3>
+                    <h3 class="text-xl font-semibold text-gray-800">Smartphone</h3>
                     <p class="text-gray-500 mt-2">$19.99</p>
-                    <button class="w-full bg-indigo-600 text-white py-2 mt-4 rounded-lg hover:bg-indigo-500 transition duration-200">Add to Cart</button>
+                    <div class="flex items-center space-x-2 mt-2">
+                        <!-- Rating stars -->
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-fill text-yellow-400"></i>
+                        <i class="ri-star-line text-gray-400"></i>
+                        <i class="ri-star-line text-gray-400"></i>
+                        <span class="text-gray-400 ml-2">(3.5)</span>
+                    </div>
+                    <button
+                        class="w-full bg-indigo-600 text-white py-2 mt-4 rounded-lg hover:bg-indigo-500 transition duration-200">Add
+                        to Cart</button>
                 </div>
             </div>
         </div>
     </section>
 
+
     <!-- About Section -->
     <section id="about" class="bg-gray-900 text-white py-12">
         <div class="container mx-auto text-center">
             <h2 class="text-3xl font-bold">About MoonLightShop</h2>
-            <p class="text-gray-400 mt-4">We offer a wide range of high-quality products for all your needs. Our mission is to provide excellent customer service and an unforgettable shopping experience.</p>
+            <p class="text-gray-400 mt-4">We offer a wide range of high-quality products for all your needs. Our mission
+                is to provide excellent customer service and an unforgettable shopping experience.</p>
         </div>
     </section>
 
@@ -109,12 +297,14 @@
             <h2 class="text-3xl font-bold">What Our Customers Say</h2>
             <div class="flex justify-center mt-8 space-x-8">
                 <div class="bg-white p-6 shadow-lg rounded-lg max-w-xs">
-                    <p class="text-gray-600">"MoonLightShop has changed the way I shop online! Their products are top-notch and their customer service is fantastic!"</p>
+                    <p class="text-gray-600">"MoonLightShop has changed the way I shop online! Their products are
+                        top-notch and their customer service is fantastic!"</p>
                     <p class="mt-4 font-semibold text-gray-800">John Doe</p>
                     <p class="text-gray-500">Satisfied Customer</p>
                 </div>
                 <div class="bg-white p-6 shadow-lg rounded-lg max-w-xs">
-                    <p class="text-gray-600">"Fast shipping and excellent quality. I’m very impressed with my purchase!"</p>
+                    <p class="text-gray-600">"Fast shipping and excellent quality. I’m very impressed with my purchase!"
+                    </p>
                     <p class="mt-4 font-semibold text-gray-800">Jane Smith</p>
                     <p class="text-gray-500">Happy Shopper</p>
                 </div>
@@ -129,15 +319,19 @@
             <div class="mt-8 space-y-4">
                 <div class="text-left max-w-3xl mx-auto">
                     <h3 class="text-xl font-semibold text-gray-300">1. What is MoonLightShop's return policy?</h3>
-                    <p class="text-gray-400">We offer a 30-day return policy for all products. If you're not satisfied, simply return the product within 30 days for a full refund.</p>
+                    <p class="text-gray-400">We offer a 30-day return policy for all products. If you're not satisfied,
+                        simply return the product within 30 days for a full refund.</p>
                 </div>
                 <div class="text-left max-w-3xl mx-auto">
                     <h3 class="text-xl font-semibold text-gray-300">2. How do I track my order?</h3>
-                    <p class="text-gray-400">Once your order has shipped, you will receive an email with a tracking number and a link to track your order's status.</p>
+                    <p class="text-gray-400">Once your order has shipped, you will receive an email with a tracking
+                        number and a link to track your order's status.</p>
                 </div>
             </div>
         </div>
     </section>
+
+
 
     <!-- Contact Us Section -->
     <section id="contact" class="py-12 bg-gray-100">
@@ -145,10 +339,15 @@
             <h2 class="text-3xl font-bold">Contact Us</h2>
             <p class="text-gray-600 mt-2">Have any questions or need support? Get in touch with us.</p>
             <form class="mt-8 max-w-lg mx-auto bg-white p-6 rounded-lg shadow-lg">
-                <input type="text" placeholder="Your Name" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg">
-                <input type="email" placeholder="Your Email" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg">
-                <textarea placeholder="Your Message" class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg"></textarea>
-                <button type="submit" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-500 transition duration-200">Send Message</button>
+                <input type="text" placeholder="Your Name"
+                    class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg">
+                <input type="email" placeholder="Your Email"
+                    class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg">
+                <textarea placeholder="Your Message"
+                    class="w-full px-4 py-2 mb-4 border border-gray-300 rounded-lg"></textarea>
+                <button type="submit"
+                    class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-500 transition duration-200">Send
+                    Message</button>
             </form>
         </div>
     </section>
@@ -164,5 +363,7 @@
             </div>
         </div>
     </footer>
+    <script src="/public/js/index.js"></script>
 </body>
+
 </html>
